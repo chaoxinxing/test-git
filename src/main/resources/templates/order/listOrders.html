@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http：//www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>在线购物系统</title>
+</head>
+<body>
+<div class="content">
+    <!--    header部分    -->
+    <div th:insert="header :: header"></div>
+    <!--    body部分    -->
+    <div class="body">
+        <!--      菜单部分      -->
+        <div th:replace="left :: left"></div>
+
+        <div class="right">
+            <!--      内容渲染部分          -->
+            <div class="right_content">
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>订单编号</th>
+                        <th>商品名称</th>
+                        <th>手机号</th>
+                        <th>地址</th>
+                        <th>下单时间</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="order:${orders}">
+                        <td th:text="${order.orderNo}"></td>
+                        <td th:text="${order.productName}"></td>
+                        <td th:text="${order.mobile}"></td>
+                        <td th:text="${order.address}"></td>
+                        <td th:text="${#dates.format(order.dateTime, 'yyyy-MM-dd hh:mm:ss')}"></td>
+<!--                        <td th:text="${order.dateTime}"></td>-->
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .order {
+        display: block;
+        text-align: right;
+    }
+
+    .right_content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .product {
+        border: 1px solid black;
+        padding: 10px 10px;
+        margin: 5px 5px;
+    }
+</style>
+
+</body>
+</html>

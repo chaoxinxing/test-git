@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http：//www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>在线购物系统</title>
+</head>
+<body>
+<div class="content">
+    <!--    header部分    -->
+    <div th:insert="header :: header"></div>
+    <!--    body部分    -->
+    <div class="body">
+        <!--      菜单部分      -->
+        <div th:replace="left :: left"></div>
+
+        <div class="right">
+            <!--      内容渲染部分          -->
+            <div class="right_content">
+                <h2>Spring Boot 演示项目</h2>
+                <div style="color: red" th:if="${msg}" th:text="${msg}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<div th:fragment="header">
+    <div class="header">
+        <span><span th:text="${session.member.name}"></span>，欢迎您</span>
+        <a href="/logout">登出</a>
+    </div>
+
+
+    <style>
+        .content {
+            width: 1000px;
+            margin: 0 auto;
+
+            border: 1px solid black;
+        }
+
+        .header {
+            height: 30px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+
+            padding-right: 10px;
+        }
+
+        a {
+            display: block;
+            color: blue;
+        }
+
+        .header a {
+            margin-left: 10px;
+        }
+
+        .body {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .right {
+            width: 90%;
+            min-height: 500px;
+
+            border: 1px solid black;
+        }
+
+        .right_content {
+            padding: 10px 10px;
+        }
+
+        a {
+            display: block;
+            color: blue;
+        }
+
+        .left {
+            width: 10%;
+            min-height: 500px;
+
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</div>
+
+</body>
+</html>

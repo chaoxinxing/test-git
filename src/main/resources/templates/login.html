@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http：//www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>在线购物系统</title>
+</head>
+<body>
+
+<div class="login">
+    <h3>在线购物系统</h3>
+    <form action="submitLogin" method="post">
+        <span>会员号：</span><input type="text" name="code" placeholder="会员号"/><br>
+        <span>密　码：</span><input type="password" name="password" placeholder="密码"/>
+        <div>
+            <button type="submit">登录</button>
+            <a href="register">注册</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    .login {
+        margin: 0 auto;
+        margin-top: 30px;
+        width: 300px;
+        border: 1px solid black;
+
+        padding: 20px 60px;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    input {
+        line-height: 30px;
+        width: 300px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        width: 300px;
+        height: 30px;
+    }
+
+    a {
+        display: block;
+        padding-top: 10px;
+        color: blue;
+        text-align: end;
+    }
+</style>
+</body>
+</html>

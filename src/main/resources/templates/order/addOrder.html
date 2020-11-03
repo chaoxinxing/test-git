@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>在线购物系统</title>
+</head>
+<body>
+<div class="content">
+    <!--    header部分    -->
+    <div th:insert="header :: header"></div>
+    <!--    body部分    -->
+    <div class="body">
+        <!--      菜单部分      -->
+        <div th:replace="left :: left"></div>
+
+        <div class="right">
+            <!--      内容渲染部分          -->
+            <div class="right_content">
+                <form action="/order/submitOrder" method="post">
+                    <div class="register_item">
+                        <div>
+                            <input type="hidden" name="productCode" th:value="${product.code}">
+                            <span>商品名称：</span>
+                            <input type="text" th:value="${product.name}" name="productName" readonly="readonly">
+
+                        </div>
+                        <div>
+                            <span>数量：</span><input type="number" name="number" placeholder="1">
+                            <div style="color: red" th:if="${msg}" th:text="${msg}"></div>
+                        </div>
+                    </div>
+                    <div class="register_item">
+                        <div>
+                            <input type="hidden" name="memberCode" th:value="${session.member.code}">
+
+                            <span>会员名称：</span>
+                            <input type="text" th:value="${session.member.name}" name="memberName" readonly="readonly">
+                        </div>
+                        <div>
+                            <span>电话：</span><input type="tel" name="mobile" th:value="${session.member.tel}">
+                        </div>
+                    </div>
+                    <div class="register_item">
+                        <div>
+                            <span>邮寄地址：</span>
+                            <input type="text" name="address"/>
+                        </div>
+                    </div>
+
+                    <div class="register_item">
+                        <button type="submit">下单</button>
+                        <a href="/product/listProducts">返回</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .order {
+        display: block;
+        text-align: right;
+    }
+
+    .right_content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .product {
+        border: 1px solid black;
+        padding: 10px 10px;
+        margin: 5px 5px;
+    }
+</style>
+
+</body>
+</html>

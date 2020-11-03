@@ -1,0 +1,5 @@
+<div th:fragment="left" class="left">
+    <a href="/product/listProducts"><h3>商品列表</h3></a>
+    <a th:href="@{'/order/listOrders/'+${session.member.code}}"><h3>订单列表</h3></a>
+</div>
+

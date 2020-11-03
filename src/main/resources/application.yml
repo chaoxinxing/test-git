@@ -1,0 +1,30 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: springboot #应用名称
+  datasource:
+    url: jdbc:mysql://localhost:3306/studyexample?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC #链接地址
+    username: root #账号
+    password: password #密码
+    driver-class-name: com.mysql.cj.jdbc.Driver #链接驱动
+
+
+  thymeleaf: #thymeleaf配置
+    cache: false #是否开启缓存
+    check-template-location: true #渲染页面之前，校验页面是否存在
+    servlet:
+      content-type: text/html
+    enabled: true #是否为Web框架启用Thymeleaf视图解析
+    encoding: UTF-8 #页面编码
+    mode: HTML #thymeleaf支持的页面渲染格式HTML/TXET等等
+    prefix: classpath:/templates/ #thymeleaf前缀路径
+    suffix: .html #thymeleaf后缀
+
+mybatis-plus:
+  mapper-locations: classpath:com/pactera/**/mapper/*.xml #mapper文件路径
+  configuration:
+    map-underscore-to-camel-case: true #是否启用驼峰命名（Mybatis默认属性名和数据库一致）,驼峰模式：例如userCode，数据库对应的就是user_code
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #是否将sql打印到控制面板(该配置会将sql语句和查询的结果都打印到控制台)
+  type-aliases-package: com.pactera.**.model #Mybatis扫描的业务实体
